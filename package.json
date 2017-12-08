@@ -1,5 +1,5 @@
 {
-  "name": "Project Name",
+  "name": "managment",
   "version": "0.0.1",
   "description": "A review time project",
   "main": "index.js",
@@ -13,6 +13,7 @@
     "skeleton"
   ],
   "dependencies": {
+    "axios": "^0.17.1",
     "body-parser": "^1.15.2",
     "chalk": "^1.1.3",
     "express": "^4.14.0",
@@ -32,7 +33,19 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
     "volleyball": "^1.4.1",
-    "webpack": "^3.5.5"
-  }
+    "webpack": "^3.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prishah1194/senior-enrichment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prishah1194/senior-enrichment/issues"
+  },
+  "homepage": "https://github.com/prishah1194/senior-enrichment#readme"
 }
