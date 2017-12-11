@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import store from '../store.js'
 import {fetchCampus} from '../reducers/campus'
-import {fetchStudent} from '../reducers/student'
-
+import {fetchStudent,fetchOneStudent} from '../reducers/student'
 
 
 import Header from './Header';
@@ -15,6 +14,12 @@ import CampusCreate from './CampusCreate';
 
 import StudentList from './StudentList'
 import StudentCreate from './StudentCreate'
+
+import StudentOne from './StudentOne'
+import CampusOne from './CampusOne'
+
+//import StudentUpdate from './StudentUpdate';
+
 
 
 
@@ -30,14 +35,19 @@ export default class Main extends Component {
         return(
             <Router>
             <div>
-            <Route exact path="/" component={Header} />
                 <Navbar/>
                 <main>
                 <Switch>
+                <Route exact path="/" component={Header} />
                 <Route exact path="/campuses" component={CampusList} />
                 <Route path="/new-campus" component={CampusCreate} />
+
                 <Route exact path="/students" component={StudentList} />
                 <Route path="/new-student" component={StudentCreate} />
+
+                <Route path="/students/:studentId" component={StudentOne}/>
+                <Route path="students/:campusId" component={CampusOne}/>
+
                 </Switch>
                 </main>
                 <Footer/>

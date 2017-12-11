@@ -7,14 +7,15 @@ var navStyle={
     padding:"10px",
     color:"white",
     borderRadius:"30px",
-    boxShadow:"5px 5px 5px #505359"
+    boxShadow:"5px 5px 5px #505359",
 }
 var buttonHome={
    margin:"20px",
    height:"50px",
-   width:"100px",
+   width:"150px",
    borderRadius:"70px",
-   boxShadow:"5px 5px 5px #505359"
+   outline:"0",
+   
 }
 
 
@@ -24,17 +25,17 @@ export default function Navbar(props) {
         <nav style={navStyle}>
             <span>
             <button style={buttonHome}>
-            <NavLink to="/"> HOME </NavLink>
+            <NavLink to="/" style={{textDecoration: 'none'}}><h2> HOME </h2></NavLink>
             </button>
             </span>
             <span>
                 <button style={buttonHome}>
-            <NavLink to="/students"> STUDENTS </NavLink>
+            <NavLink to="/students" style={{textDecoration: 'none'}}><h2> STUDENTS</h2> </NavLink>
             </button>
             </span>
             <span>
                 <button style={buttonHome}>
-            <NavLink to="/campuses"> CAMPUSES </NavLink>
+            <NavLink to="/campuses" style={{textDecoration: 'none'}}> <h2>CAMPUSES</h2> </NavLink>
             </button>
             </span>
         </nav>

@@ -3,8 +3,9 @@ import axios from 'axios';
 // ACTION TYPES
 const GET_STUDENT = 'GET_STUDENT';
 const POST_STUDENT = 'POST_STUDENT';
-const REMOVE_STUDENT='REMOVE_STUDENT'
-const UPDATE_STUDENT='UPDATE_STUDENT'
+const REMOVE_STUDENT='REMOVE_STUDENT';
+const UPDATE_STUDENT='UPDATE_STUDENT';
+//const GET_ONE_STUDENT='GET_ONE_STUDENT';
 
 // ACTION CREATORS
 export function getStudent (students) {
@@ -12,21 +13,25 @@ export function getStudent (students) {
   return action;
 }
 
-// export function postStudent (student) {
-//   const action = { type: POST_STUDENT, student };
+export function postStudent (students) {
+  const action = { type: POST_STUDENT, students };
+  return action;
+}
+
+export function removeStudent(id){
+    const action ={type: REMOVE_STUDENT, id};
+    return action;
+}
+
+export function updateStudent(students){
+    const action ={type: UPDATE_STUDENT, students};
+    return action;
+}
+
+// export function getOneStudent (students) {
+//   const action = { type: GET_ONE_STUDENT, students };
 //   return action;
 // }
-
-// export function removeStudent(student){
-//     const action ={type: REMOVE_STUDENT, student};
-//     return action;
-// }
-
-// export function updateStudent(student){
-//     const action ={type: UPDATE_STUDENT, student};
-//     return action;
-// }
-
 // THUNK CREATORS
 export function fetchStudent () {
 
@@ -40,41 +45,47 @@ export function fetchStudent () {
   };
 }
 
-
-// export function postNewStudent (student) {
-
-//   return function thunk (dispatch) {
-//     return axios.post('/api/student', student)
-//       .then(res => res.data)
-//       .then(student => {
-//         dispatch(postStudent(student));
+export function postNewStudent (student) {
+  return function thunk (dispatch) {
+    return axios.post('/api/students', student)
+      .then(response => response.data)
+      .then(students => {
+        dispatch(postStudent(students));
     
-//       });
-//   };
-// }
+      });
+  };
+}
 
-// export function putStudent (student) {
-    
-//       return function thunk (dispatch) {
-//         return axios.put('/api/student', student)
-//           .then(res => res.data)
-//           .then(student => {
-//             dispatch(updateStudent(student));
-      
-//           });
-//       };
-//     }
+export function putStudent (student) {
+      return function thunk (dispatch) {
+        return axios.put(`/api/student/${student.id}`, student)
+          .then(response => response.data)
+          .then(students => {
+            dispatch(updateStudent(students));
+          });
+      };
+    }
+    export function deleteStudent (studentId) {
+      return function thunk (dispatch) {
+        return axios.delete(`/api/students/${studentId}`)
+         // .then((studentId)=> dispatch(removeStudent(studentId)))
+          .then((student)=> dispatch(getStudent(student)))
+      };
+    }
 
-//     export function deleteStudent (student) {
-        
-//           return function thunk (dispatch) {
-//             return axios.delete('/api/student', student)
-//               .then(res => res.data)
-//               .then(campus => {
-//                 dispatch(removeStudent(student));
-//               });
-//           };
-//         }
+// export function fetchOneStudent () {
+  
+//     return function thunk (dispatch) {
+//       return axios.get(`/api/students/:$studentId`)
+//         .then(response => response.data)
+//         .then(student => {
+//           const action = getOneStudent(student);
+//           dispatch(action);
+//         });
+//     };
+//   }
+  
+
 
 // REDUCER
 export default function reducer (state = [], action) {
@@ -83,15 +94,18 @@ export default function reducer (state = [], action) {
     case GET_STUDENT:
       return action.students;
 
-  //   case POST_STUDENT:
-  //     return [...state, action.student];
+    case POST_STUDENT:
+      return [...state, action.students];
 
-  //   case REMOVE_STUDENT:
-  //   return action.student;
+    // case REMOVE_STUDENT:
+    // return action.students
 
-  // case UPDATE_STUDENT:
-  //   return [...state, action.student];
-
+    case UPDATE_STUDENT:
+    return students.map(student=>(student.id===action.updateStudent.id))
+    
+    // case GET_ONE_STUDENT:
+    // return action.students
+    
     default:
       return state;
   }

@@ -11,7 +11,7 @@ const Campus = db.define('campuses', {
     },
     imageURL:{
         type:Sequelize.STRING,
-        defaultValue:"https://static.pexels.com/photos/46274/pexels-photo-46274.jpeg"
+        defaultValue:"https://www.nasa.gov/images/content/738996main_pia16884-43_946-710.jpg"
     },
     description:{
         type:Sequelize.TEXT
