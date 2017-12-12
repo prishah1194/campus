@@ -46,7 +46,7 @@ function StudentCreate(props) {
                     name="gpa"
                     min="0"
                     max="4"
-                    step="0.01"
+                    step="0.1"
                     placeholder="Enter student's GPA"
                     style={{width:"150px",height:"30px",background:"#f7f4f4",paddingLeft:"5px"}}
                 />

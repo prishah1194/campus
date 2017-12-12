@@ -12,7 +12,7 @@ function StudentList(props) {
 
         <ol>
         
-                <h1>Students</h1>
+                <h1>STUDENTS:</h1>
                            
             {
 
@@ -45,8 +45,8 @@ const mapStateToProps = function (state) {
         students: state.students
     };
 };
-const mapDispatchToState = function (dispatch) {
-    return {
-}}
+// const mapDispatchToState = function (dispatch) {
+//     return {
+// }}
 
 export default withRouter(connect(mapStateToProps)(StudentList));

@@ -46,7 +46,7 @@ export default class Main extends Component {
                 <Route path="/new-student" component={StudentCreate} />
 
                 <Route path="/students/:studentId" component={StudentOne}/>
-                <Route path="students/:campusId" component={CampusOne}/>
+                <Route path="/campuses/:campusId" component={CampusOne}/>
 
                 </Switch>
                 </main>

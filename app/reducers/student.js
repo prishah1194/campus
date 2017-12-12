@@ -68,8 +68,8 @@ export function putStudent (student) {
     export function deleteStudent (studentId) {
       return function thunk (dispatch) {
         return axios.delete(`/api/students/${studentId}`)
-         // .then((studentId)=> dispatch(removeStudent(studentId)))
-          .then((student)=> dispatch(getStudent(student)))
+          .then((studentId)=> dispatch(removeStudent(studentId)))
+          .catch(err=>console.log(err))
       };
     }
 
@@ -97,8 +97,8 @@ export default function reducer (state = [], action) {
     case POST_STUDENT:
       return [...state, action.students];
 
-    // case REMOVE_STUDENT:
-    // return action.students
+    case REMOVE_STUDENT:
+    return state.students.filter(student=>student.id!==action.studentId)
 
     case UPDATE_STUDENT:
     return students.map(student=>(student.id===action.updateStudent.id))

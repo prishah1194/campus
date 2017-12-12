@@ -5,27 +5,35 @@ import { deleteCampus } from '../reducers/campus'
 
 function CampusOne(props) {
    
+    
+    const campusId = Number(props.match.params.campusId);
+    const filteredStudent=props.students.filter((student)=>student.campusId===campusId)
+    const allCampuses = props.campuses
+    const campus=allCampuses.filter(campus=>campus.id===campusId)[0]
+    
     const { students, campuses,handleDelete} = props;
-
+    console.log(filteredStudent)
     return (
         <div>
-        <div>
-            <h5>Attending Campus: {students.name}</h5>
+            <h1>hello</h1>
+         <div>
+             
+            <h5>Attending Campus:{filteredStudent.fullName}</h5>
+            <NavLink to="/students">
+            {filteredStudent.map(student=>(<li key={student.id}>{student.fullName}</li>)
+            )}
+            </NavLink>
         </div>
         <NavLink to="/updateCampus/:campusId">
         <button>Update Campus Information</button>
         </NavLink>
         <button onClick={handleDelete}>
-            <NavLink to='/campuses'>
         Delete Student
-        </NavLink></button>
+        </button> 
         </div>
     );
 }
 const mapStateToProps = function (state,ownProps) {
-    const studentId = Number(ownProps.match.params.studentId);
-    const student = state.students.find(student => student.id === studentId);
-    const campus = state.campuses.find(campus => student.campusId === campus.id);
     return {
         students:state.students,
         campuses:state.campuses
@@ -33,8 +41,8 @@ const mapStateToProps = function (state,ownProps) {
 };
 const mapDispatchToProps = function (dispatch, ownProps) {
     const campusId = Number(ownProps.match.params.campusId);
+    console.log(campusId)
     return {
-       
         handleDelete(evt) {
             evt.preventDefault();
             dispatch(deleteCampus(campusId));

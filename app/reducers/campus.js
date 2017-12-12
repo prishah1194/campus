@@ -72,20 +72,22 @@ export function putCampus (campus) {
         
           return function thunk (dispatch) {
             return axios.delete(`/api/campus/${campusId}`)
-              .then(()=>dispatch(removeCampus(campusId)))
+              .then((campusId)=>dispatch(removeCampus(campusId)))
+              .catch(err=>console.log(err))
           };
         }
 
-export function fetchOneCampus () {
-return function thunk (dispatch) {
-  return axios.get(`/api/campus/:$campusId`)
-    .then(response => response.data)
-    .then(campus => {
-      const action = getOneCampus(campus);
-      dispatch(action);
-    });
-};
-}
+
+// export function fetchOneCampus () {
+// return function thunk (dispatch) {
+//   return axios.get(`/api/campus/:$campusId`)
+//     .then(response => response.data)
+//     .then(campus => {
+//       const action = getOneCampus(campus);
+//       dispatch(action);
+//     });
+// };
+// }
 
 // REDUCER
 export default function reducer (state = [], action) {
@@ -103,8 +105,8 @@ export default function reducer (state = [], action) {
   case UPDATE_CAMPUS:
   return campuses.map(campus=>(campus.id===action.updateCampus.id))
     
-    case GET_ONE_CAMPUS:
-    return action.campuses
+    // case GET_ONE_CAMPUS:
+    // return action.campuses
 
     default:
       return state;

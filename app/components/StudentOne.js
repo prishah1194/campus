@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { withRouter, NavLink } from 'react-router-dom';
-import { deleteStudent } from '../reducers/student'
+import { withRouter, NavLink, Redirect } from 'react-router-dom';
+import { deleteStudent,fetchStudent } from '../reducers/student'
 
 function StudentOne(props) {
     const studentId = Number(props.match.params.studentId);
@@ -10,12 +10,12 @@ function StudentOne(props) {
     const campus=allCampuses.filter(campus=>campus.id===student.campusId)[0]
 
    const { students, campuses,handleDelete } = props;
-    console.log(student)
+    //console.log(student)
     return (
         <div style={{border:"solid", paddingLeft:"10px", paddingBottom:"10px"}}>
         <div>
             <h3>Student Name: {student.fullName}</h3>
-            <h5>Attending Campus: {campus.name}</h5>
+            <h5>Attending Campus: <NavLink to="/campuses">{campus.name}</NavLink></h5>
             <h5>Email: {student.email}</h5>
             <h5>GPA: {student.gpa}</h5> 
         </div>
@@ -23,10 +23,10 @@ function StudentOne(props) {
         <button>Update Student Information</button>
         </NavLink>
        
-          
-            <button onClick={handleDelete}>
-        Delete Student
+        <button onClick={handleDelete}>
+        Delete Students
         </button> 
+        
         </div>
     );
 }
