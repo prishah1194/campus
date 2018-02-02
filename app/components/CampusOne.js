@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { withRouter, NavLink } from 'react-router-dom';
+import { withRouter, NavLink,Redirect } from 'react-router-dom';
 import { deleteCampus } from '../reducers/campus'
 
 function CampusOne(props) {
@@ -12,7 +12,6 @@ function CampusOne(props) {
     const campus=allCampuses.filter(campus=>campus.id===campusId)[0]
     
     const { students, campuses,handleDelete} = props;
-    console.log(filteredStudent)
     return (
         <div>
             <h1>hello</h1>
@@ -41,7 +40,6 @@ const mapStateToProps = function (state,ownProps) {
 };
 const mapDispatchToProps = function (dispatch, ownProps) {
     const campusId = Number(ownProps.match.params.campusId);
-    console.log(campusId)
     return {
         handleDelete(evt) {
             evt.preventDefault();

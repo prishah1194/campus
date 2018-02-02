@@ -9,7 +9,7 @@ export default function Footer() {
             <hr/>
             <p>Posted by: Priyanka</p>
             <p>Contact information: <a href="mailto:prishah1194@gmail.com">prishah1194@gmail.com</a></p>
-            <p>&copy; 2017 Fullstack</p>
+            <p>&copy; 2017 Priyanka</p>
         </div>
     );
 }
