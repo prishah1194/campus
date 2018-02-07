@@ -24,6 +24,7 @@ email:{
         notEmpty:true
     }, 
 },
+
 gpa:{
     type:Sequelize.FLOAT,
     validate:{

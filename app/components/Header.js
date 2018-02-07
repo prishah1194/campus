@@ -13,7 +13,9 @@ var headerStyle={
 var ib={
     display:"inline-block",
     width:"710px",
-    padding:"20px"
+    padding:"50px",
+    paddingRight:"20px",
+
 }
 
 
@@ -29,7 +31,7 @@ export default function Home() {
             <h1 style={headerStyle}>Lorem Ipsum</h1>
         </div>
         
-        <div style={{marginLeft:"20px", fontFamily:"Times New Roman"}}>
+        <div style={{ fontFamily:"Times New Roman"}}>
         <div style={ib}>
         <h2> About</h2>
         <h3>
@@ -43,23 +45,23 @@ export default function Home() {
         </h3>
         </div>
         <div style={ib}>
-        <Carousel style={{paddingLeft:"30px", paddingRight:"30px", width:"500px",height:"294px"}}>
+        <Carousel style={{width:"500px",height:"300px"}}>
   <Carousel.Item>
-    <img width={1900} height={500} alt="900x500" src="https://intuitturbotax.files.wordpress.com/2010/12/books.jpg" />
+    <img width={1900} height={100} alt="900x500" src="https://images5.alphacoders.com/389/389874.jpg" />
     <Carousel.Caption>
       <h3>First slide label</h3>
       <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
-    <img width={1900} height={500} alt="900x500" src="https://intuitturbotax.files.wordpress.com/2010/12/books.jpg" />
+    <img width={1900} height={100} alt="900x500" src="https://intuitturbotax.files.wordpress.com/2010/12/books.jpg" />
     <Carousel.Caption>
       <h3>Second slide label</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
-    <img width={1900} height={500} alt="900x500" src="https://intuitturbotax.files.wordpress.com/2010/12/books.jpg" />
+    <img width={1900} height={100} alt="900x500" src="https://images7.alphacoders.com/692/692579.jpg" />
     <Carousel.Caption>
       <h3>Third slide label</h3>
       <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -67,7 +69,7 @@ export default function Home() {
   </Carousel.Item>
 </Carousel>
         </div>
-        <div style={{paddingLeft:"20px", paddingRight:"15px"}}>
+        <div style={{paddingLeft:"50px", paddingRight:"20px"}}>
             <h2>Where does it come from?</h2>
             <h3>       
 Contrary to popular belief, 

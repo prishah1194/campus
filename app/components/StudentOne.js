@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { withRouter, NavLink, Redirect } from 'react-router-dom';
 import { deleteStudent,fetchStudent } from '../reducers/student'
+import { Button } from 'react-bootstrap'
 
 function StudentOne(props) {
     const studentId = Number(props.match.params.studentId);
@@ -12,16 +13,23 @@ function StudentOne(props) {
    const { students, campuses,handleDelete } = props;
     //console.log(student)
     return (
-        <div style={{border:"solid", paddingLeft:"10px", paddingBottom:"10px"}}>
+        <div style={{paddingLeft:"30px", paddingTop:"20px",marginLeft:"50px",marginTop:"20px", width:"500px",color:"rgb(157,157,157)", height:"250px",backgroundColor:"#222222",fontFamily:"Times New Roman"}}>
         <div>
+            {console.log(students)}
             <h3>Student Name: {student.fullName}</h3>
             <h5>Attending Campus: <NavLink to="/campuses">{campus.name}</NavLink></h5>
             <h5>Email: {student.email}</h5>
             <h5>GPA: {student.gpa}</h5> 
         </div>
+        {/* <Button bsStyle="success">
+            <NavLink to="/new-student" style={{textDecoration: 'none',fontSize:"15px", color:"white"}}>Create a new student entry</NavLink>
+            </Button>  */}
+            <Button bsStyle="success">
         <NavLink to="/updateStudent/:studentId">
-        <button>Update Student Information</button>
+        Update the Students
+        {/* <button>Update Student Information</button> */}
         </NavLink>
+        </Button>
        
         <button onClick={handleDelete}>
         Delete Students
